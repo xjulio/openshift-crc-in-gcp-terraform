@@ -44,23 +44,29 @@ cd openshift-crc-in-gcp-terraform
 terraform init
 ```
 
-### 4 - Create the terraform plan
+### 4 - Adjust GCP project name and pull secrets file location in `terraform.tfvars` file:
+```
+pull_secrets  = "~/Downloads/pull-secret"
+project       = "xjulio-ocp"
+```
+
+### 5 - Create the terraform plan
 ```
 terraform plan
 ```
 
-### 5 - Apply the terraform plan
+### 6 - Apply the terraform plan
 ```
 terraform apply
 ```
 
-### 6 - Connect the crc instance
+### 7 - Connect the crc instance
 Wait for terraform to apply and isntance boot, then connect using `gcloud` command.
 ```
 gcloud compute ssh crc
 ```
 
-### 7 - Install crc
+### 6 - Install crc
 ```
 sh /tmp/crc-setup.sh
 ```
