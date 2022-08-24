@@ -19,7 +19,7 @@ resource "google_compute_address" "static_ip" {
   name = var.instance_name
 }
 
-resource "google_compute_firewall" "allow_ssh" {
+resource "google_compute_firewall" "allow_crc" {
   name          = "allow-crc"
   network       = var.network
   target_tags   = ["allow-crc"]
@@ -27,7 +27,7 @@ resource "google_compute_firewall" "allow_ssh" {
 
   allow {
     protocol = "tcp"
-    ports    = ["443", "80", "6443"]
+    ports    = ["22", "443", "80", "6443"]
   }
 }
 
